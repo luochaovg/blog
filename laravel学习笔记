@@ -1,0 +1,16 @@
+问题一：路由
+    get路由可以访问，其它post，put路由在postman访问报错
+
+注意二：get路由，多个参数
+    可选参数
+    有时候可能需要指定可选的路由参数，这可以通过在参数名后加一个 ? 标记来实现，
+    这种情况下需要给相应的变量指定默认值
+
+    Route::get('user/{id}/comment/{comment?}', function ($id=null,$comment=null) {
+        return 'User:'.$id.'---------comment:'.$comment;
+    });
+    这种情况只能给最后一个参数指定默认值
+
+问题三：php artisan make:Controller UserController 创建控制器报错
+    [RuntimeException]
+    Unable to detect application namespace.
