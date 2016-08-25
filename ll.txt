@@ -56,10 +56,10 @@
    56  ls
    57  rm -f echo 
    58  vi test.txt 
-   59  ls
+
    60  git add test.txt 
    61  git commit -m 'first commit'
-   62  ls
+
    63  git romote add origin git@github.com:github luochao test.txt
    64  git remote add origin git@github.com:github luochao test.txt
    65  git remote add origin git@github.com:github luochao/test.txt
