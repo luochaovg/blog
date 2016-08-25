@@ -15,5 +15,3 @@
     [RuntimeException]
     Unable to detect application namespace.
 
-
-    add test
