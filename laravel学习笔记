@@ -14,3 +14,6 @@
 问题三：php artisan make:Controller UserController 创建控制器报错
     [RuntimeException]
     Unable to detect application namespace.
+
+
+    add test
