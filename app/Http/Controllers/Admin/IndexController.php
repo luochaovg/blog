@@ -7,7 +7,7 @@ class IndexController extends Controller{
     public function index()
     {
      echo 'ddddddd';
-//        return view('welcome');
+//  return view('welcome');
         //
     }
 
