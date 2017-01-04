@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 
-//Route::get('view','ViewController@index');
-Route::get('view','ViewController@view');
+Route::get('view','ViewController@index');
+Route::get('conf','ViewController@view');
 
 Route::get('news','ViewController@news');
 Route::get('article','ViewController@article');
@@ -65,14 +65,14 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin','middleware'=>['web','adm
 
 
 //命名路由
-//Route::get('user',['as' => 'profile', function(){
-//    echo route('profile');
-//        return '<h1>命名路由</h1>';
-//}]);
+Route::get('user',['as' => 'profile', function(){
+    echo route('profile');
+        return '<h1>命名路由</h1>';
+}]);
 
 
 
-//Route::get('test','Admin\IndexController@index');  //注意这里用反斜杠
+Route::get('test','Admin\IndexController@index');  //注意这里用反斜杠
 
 
 //参数约束

@@ -38,37 +38,37 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title"><?php echo $data['name']; echo $data['age'];?>
+                <div class="title">{{$title}}<?php echo $data['name']; echo $data['age'];?>
                     <p>{{isset($title)?$title:'aaa'}}  @{{$title}} @ 屏蔽</p>
                     <p>{!! $str !!}</p>
 
                 </div>
                 <div>
                     <p>
-                        {{--@if($data['age']<60)--}}
-                            {{--不及格--}}
-                            {{--@else--}}
-                                {{--及格--}}
-                        {{--@endif--}}
+                        @if($data['age']<60)
+                            不及格
+                            @else
+                                及格
+                        @endif
 
-                        {{--@unless($data['age']>60)--}}
-                                {{--不及格--}}
-                            {{--@endunless--}}
+                        @unless($data['age']>60)
+                                不及格
+                            @endunless
 
-                        {{--@for($i=0; $i<=$data['num'];$i++)--}}
-                            {{--{{$i}}<BR>--}}
-                            {{--@endfor--}}
+                        @for($i=0; $i<=$data['num'];$i++)
+                            {{$i}}<BR>
+                            @endfor
 
-                        {{--@foreach($data['article'] as $v)--}}
-                            {{--{{$v}}<br>--}}
-                            {{--@endforeach--}}
+                        @foreach($data['article'] as $v)
+                            {{$v}}<br>
+                            @endforeach
 
 
-                        {{--@forelse($data['news'] as $v)--}}
-                            {{--{{$v}}<br>--}}
-                                {{--@empty--}}
-                                    {{--no data--}}
-                            {{--@endforelse--}}
+                        @forelse($data['news'] as $v)
+                            {{$v}}<br>
+                                @empty
+                                    no data
+                            @endforelse
 
                         @foreach($data['article'] as $key => $v)
                             @if($key>1)

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class ViewController extends Controller
 {
@@ -32,8 +34,18 @@ class ViewController extends Controller
     }
 
     public function view(){
+//        $pdo = DB::connection()->getPdo();
+//        dd($pdo);
+//        $users = DB::table('contents')->where('cid','>',2)->get();
+//        dd($users);
+//            $result = User::where('uid','1')->get();
+            $result = User::find(1);
+            $result -> name = 'luochao';
+            $result -> update();
+            dd($result);
+
         echo config('database.connections.mysql.prefix');
-        echo 'ddd';
+//        echo 'ddd';
     }
 
     public function news(){
