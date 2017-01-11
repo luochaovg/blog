@@ -59,8 +59,5 @@ class ViewController extends Controller
     public function layouts(){
         return view('layouts');
     }
-
     
-    
-
 }

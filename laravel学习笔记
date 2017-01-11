@@ -15,3 +15,168 @@
     [RuntimeException]
     Unable to detect application namespace.
 
+
+1,路径书写  asset  {{asset('resources/views/...')}}
+2,第三方包 有seesion，需要在入口文件开启seesion_start().
+3,验证码  ：src 路径  {{url('admin/code')}}  鼠标点击验证码  onclick="this.src='{{url('admin/code')}}?-Math.random()'"
+
+4，post提交判断
+        <from action="" method="post">
+            {{csrf_field()}}  //csrf保护机制
+        </form>
+
+    if($Input = Input::all()){
+        dd($Input);
+    }
+
+    返回前一个页面，带提示信息
+    return back()->with('msg','验证码错误');
+        返回的msg保存在session中
+        @if(session('msg'))
+            <p>{{session('msg')}}</p>
+            @endif
+
+5,用户名和密码认证
+字符串加密 Crypt::encrypt($str)   解密 Crypt::decrypt($str_p)
+
+新建user mode模型
+$user  = User::all()  取user表所有数据
+$user  = User::first()  取 user 第一条数据
+
+if( $user -> user_name != $input['user_name'] || Crypt::decrypt($user->user_pass) != $input['user_pass'] ){
+ return back()->with('msg','账号后密码错误');
+}
+
+地址跳转 return redirect('admin/index');
+return view('admin.login');
+
+6,登录中间件 ，注销
+
+7,管理员密码修改
+html
+    <form method="post" action="">
+        {{csrf_field()}}  //csrf验证
+
+        @if(count($errors>0))  //错误信息返回
+            @if(is_object($errors))
+               @foreach($errors->all() as $error){
+                  {{$error}}
+               }
+               @endforeach
+           @else
+                 {{$errors}}
+           @endif
+        @endif
+
+        <input name="old_password">
+        <input name="password">
+        <input name="password_confimed">
+    </form>
+
+php
+if($input = Input::all()){
+    $rules = [
+        'passsword' =>  'required|between:6,20|confimed', //验证规则，密码必填(required)且密码长度为6-20(between)  密码确让（confimed） <input name="password_confimed">
+    ];
+    $message =  [
+        'password.required' => '新密码不能为空',
+        'password.between' => '新密码必须在6到20位之间！',
+        'password.confimed' => '新密码和确让密码不一致',
+    ];
+    $validator = Validator::make($input,$rules,$message);
+
+    //验证测试
+    if($validator->passes()){
+        $user = User::first();
+        $_password = Crypt::decrypt($user->user_pass);
+        if($input['old_password'] == $_password){
+                $user->user_pass = Crypt::encrypt($input['password']);
+                $user-> update();
+                return back()->with('errors','密码'修改成功！);
+        }else{
+            return back()->with('errors','原密码错误')；
+        }
+    }else{
+        dd($validator -> errors() -> all());
+        retuen back()->withErrors($validator);
+        }
+
+}
+
+8，后台分类列表页
+增删改查  资源路由
+Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=>'Admin'],function(){
+    Route::resource('category','CategoryController');
+});
+
+新建Category控制器CategoryController.php和模型Category.php
+
+CategoryController  控制器
+   public function index(){
+        $categorys = Category::all();
+        dd($categorys);
+        return view('admin.category.index')->with('$data',$categorys);
+   }
+
+Category视图
+@foreach($data as $v)
+        {{$v->cate_id}}
+        {{$v->cate_name}}
+        {{$v->cate_title}}
+@endforeach
+
+public function getTree(){
+    $arr = array();
+    foreach($data as $key => $v){
+        if($v->cate_pid==0){
+            $data[$k]["_cate_name"] = $data[$k]["cate_name"];
+            $arr[] = $data[$k];
+            foreach($data as $m => $n){
+                if( $n -> cate_pid == $v -> cate_id){
+                    $data[$m]["_cate_name"] = '|---'.$data[$m]["cate_name"];
+                    $arr[] = $data[$m];
+                }
+            }
+        }
+    }
+}
+
+
+9.ajax异步加载
+
+blade.php js
+<input type="text" onchange="changeOrder(this,{{$v->cate_id}})">
+function changeOrder(obg,cate_id){
+    var cate_order = $(obj).val();
+    $.post(""{{url('admin/cate/changeorder')}},{'_token':'{{csrf_token()}}','cate_id':cate_id,'cate_order':cate_order},function(){
+        if(data.statu == 1){
+            alert("success");
+        }else{
+            alert("error");
+        }
+    });
+}
+
+route.php 分配路由
+Route::post(‘cate/changeorder’,'CategoryController@changeOrder');
+
+CategoryController.php  控制器操作
+public function changeOrder(){
+    $input = Input::all();
+    $cate = Category::find($input['cate_id']);
+    $cate -> cate_order = $input['cate_order'];
+    $re = $cate  -> update();
+    if($re){
+        $data = [
+            'status' => 1,
+            'msg' => '更新成功'
+        ];
+    }else{
+     $data = [
+                'status' => 0,
+                'msg' => '更新失败'
+            ];
+    }
+    return $data;
+}
+

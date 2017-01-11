@@ -16,12 +16,38 @@ Route::get('/', function () {
 });
 
 
-Route::get('view','ViewController@index');
-Route::get('conf','ViewController@view');
 
-Route::get('news','ViewController@news');
-Route::get('article','ViewController@article');
-Route::get('layouts','ViewController@layouts');
+
+Route::group(['prefix' => 'wechat','namespace'=>'Wechat','middleware' => ['web', 'wechat.oauth']], function () {
+    Route::any('wechat', 'WechatController@serve');
+
+    Route::get('users', 'UsersController@serve@users');
+    Route::get('user/{openId}', 'UserController@serve@user');
+    Route::get('remark', 'UserController@serve@remark');
+
+    Route::get('menu', 'MenuController@serve@menu');
+
+    Route::get('user', function () {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        dd($user);
+        return view('user',compact('user'));
+    });
+});
+
+//Route::group(['prefix' => 'admin','namespace'=>'Admin','middleware'=>['web','adminlogin']],function(){  //前缀，命名空间分组
+//    Route::get('index','IndexController@index');
+//    Route::resource('article','ArticleController@index'); //资源路由
+//});
+
+
+
+
+//Route::get('view','ViewController@index');
+//Route::get('conf','ViewController@view');
+//
+//Route::get('news','ViewController@news');
+//Route::get('article','ViewController@article');
+//Route::get('layouts','ViewController@layouts');
 
 
 //Route::get('/view', function () {
@@ -30,23 +56,23 @@ Route::get('layouts','ViewController@layouts');
 
 
 //中间件 路由加保护过滤
-Route::group(['middleware' => ['web']], function () {
-    Route::get('admin/login','Admin\IndexController@login');
-
-    Route::get('/test', function () {
-//        session(['key' => '']);
-        echo session('key').'<BR>';
-        return 'test';
-    });
-
-});
+//Route::group(['middleware' => ['web']], function () {
+//    Route::get('admin/login','Admin\IndexController@login');
+//
+//    Route::get('/test', function () {
+////        session(['key' => '']);
+//        echo session('key').'<BR>';
+//        return 'test';
+//    });
+//
+//});
 
 
 //路由分组
-Route::group(['prefix' => 'admin','namespace'=>'Admin','middleware'=>['web','adminlogin']],function(){  //前缀，命名空间分组
-    Route::get('index','IndexController@index');
-    Route::resource('article','ArticleController@index'); //资源路由
-});
+//Route::group(['prefix' => 'admin','namespace'=>'Admin','middleware'=>['web','adminlogin']],function(){  //前缀，命名空间分组
+//    Route::get('index','IndexController@index');
+//    Route::resource('article','ArticleController@index'); //资源路由
+//});
 
 //Route::get('admin/login','Admin\IndexController@login');
 //Route::get('admin/index','Admin\IndexController@index');
@@ -65,14 +91,14 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin','middleware'=>['web','adm
 
 
 //命名路由
-Route::get('user',['as' => 'profile', function(){
-    echo route('profile');
-        return '<h1>命名路由</h1>';
-}]);
-
-
-
-Route::get('test','Admin\IndexController@index');  //注意这里用反斜杠
+//Route::get('user',['as' => 'profile', function(){
+//    echo route('profile');
+//        return '<h1>命名路由</h1>';
+//}]);
+//
+//
+//
+//Route::get('test','Admin\IndexController@index');  //注意这里用反斜杠
 
 
 //参数约束
