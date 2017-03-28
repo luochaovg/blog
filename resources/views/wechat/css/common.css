@@ -1,0 +1,269 @@
+﻿@charset "utf-8";
+html {
+    font-size: 10px
+}
+
+@media only screen and (min-width: 400px) {
+    html {
+        font-size: 10.666666px !important
+    }
+}
+
+@media only screen and (min-width: 414px) {
+    html {
+        font-size: 11.04px !important
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    html {
+        font-size: 13.8px !important
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+
+/*html {font-size : 20px;}.filter-container>div
+@media only screen and (min-width: 401px){html {font-size: 25px !important;}}
+@media only screen and (min-width: 428px){html {font-size: 26.75px !important;}}
+@media only screen and (min-width: 481px){html {font-size: 30px !important;}}
+@media only screen and (min-width: 569px){html {font-size: 35px !important;}}
+@media only screen and (min-width: 641px){html {font-size: 40px !important;}}*/
+
+
+/*@media only screen and (min-width: 320px) and (max-width: 351px){html{font-size: 10px;} }
+@media only screen and (min-width: 352px) and (max-width: 383px){html{font-size: 11px;} }
+@media only screen and (min-width: 384px) and (max-width: 415px){html{font-size: 12px;} }
+@media only screen and (min-width: 416px) and (max-width: 448px){html{font-size: 13px;} }
+@media only screen and (min-width: 448px) and (max-width: 479px){html{font-size: 14px;} }
+@media only screen and (min-width: 480px) and (max-width: 511px){html{font-size: 15px;} }
+@media only screen and (min-width: 512px) and (max-width: 543px){html{font-size: 16px;} }
+@media only screen and (min-width: 544px) and (max-width: 575px){html{font-size: 17px;} }
+@media only screen and (min-width: 576px) and (max-width: 607px){html{font-size: 18px;} }
+@media only screen and (min-width: 608px) and (max-width: 639px){html{font-size: 19px;} }
+@media only screen and (min-width: 640px){html{ font-size: 20px; }*/
+
+
+/*css reset*/
+
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box}
+
+html { height: 100%; font-size: 62.5%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box}
+
+body { width: 100%; height: 100%; max-width: 640px; font-family: "微软雅黑", "Microsoft YaHei UI", "MS Serif", "MS Sans Serif", "Microsoft Sans Serif"; font-size: 1.4rem; line-height: 2rem; margin: auto; padding: 0; position: relative; background: #fff; color: #3c3c3c;  }
+
+a { color: #3c3c3c; text-decoration: none; }
+
+a:link { color: #3c3c3c}
+
+img { width: 100%; outline: 0; border: 0}
+
+ul { padding: 0; margin: 0; list-style: none}
+
+dd,
+dt { padding: 0; margin: 0}
+
+input { box-shadow: none; -webkit-box-shadow: none}
+
+i { font-style: normal; font-family: "微软雅黑"}
+
+.nowrap { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+
+.lazy { background: url(../img/loading.gif) no-repeat center}
+
+.main { width: 100%; min-width: 320px; max-width: 640px; position: relative; margin: auto; }
+
+.main:after,
+.main:before { content: ""; clear: both; display: table; }
+
+.main100 { position: relative; width: 100%; height: 100%; overflow: hidden}
+
+.clearfloat { content: ""; clear: both; display: table; }
+
+.hide { display: none; }
+
+input { border: none; outline: none; }
+
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden}
+
+.clearfix:before { content: "."; display: block; height: 0; clear: both; visibility: hidden}
+
+.clearfix { position: relative; }
+
+.newmain { width: 100%; max-width: 640px; }
+
+h1,h2,h3,h4,h5,h6,p{ margin:0; padding:0; }
+
+/*网页导航样式开始 nav*/
+.wrap{ display: none;}
+.wrap .nav { height: 4.6rem; width: 100%; max-width: 640px; min-width: 320px; position: fixed; top: 0; z-index: 9999999999; background: #019EEB; padding: 0.65rem 0 0.65rem; }
+
+.wrap .nav .navLeft { position: absolute; left: 1rem; top: 0.65rem; height: 3.3rem; font-size: 1.6rem; color: #FFF; line-height: 3.3rem;  vertical-align: middle; }
+
+.wrap .nav .navLeft img { width: 1rem; vertical-align: middle; margin-right: 0.5rem;;display:block;float: left;    margin-top: .85rem; }
+
+.wrap .nav .navCenter { margin: 0 8.8rem 0 7.8rem; display: block; overflow: hidden; height: 3.3rem; line-height: 3.3rem; text-align: center; font-size: 1.8rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.wrap .nav .navCenter a { display: inline-block; height: 3.3rem; line-height: 3.3rem; font-size: 1.5rem; color: #FFF; width: 50%; border: #FFF 0.1rem solid; text-align: center; }
+
+.wrap .nav .navCenter a:first-child { float: left; border-radius: 1.65rem 0 0 1.65rem; }
+
+.wrap .nav .navCenter a:last-child { float: right; border-radius: 0 1.65rem 1.65rem 0; }
+
+.wrap .nav .navCenter a.active { background: #FFF; color: #019EEB}
+
+.wrap .nav .navRight { position: absolute; right: 1rem; top: 0.65rem; height: 3.3rem; /*line-height:3.3rem; vertical-align:middle; */}
+
+.wrap .nav .navRight a { height: 1.9rem; width: 1.9rem; float: left; display: block; background: url(../images/search2.png) no-repeat; background-size: cover; margin: 0.7rem 1.4rem 0.7rem 0; }
+
+.wrap .nav .navRight .indexNavBtn { /*width:2.9rem; */  line-height: 3.3rem; display: block; float: right; font-size: 1.6rem; color: #FFF; height: 3.3rem; vertical-align: middle; }
+
+/*网页导航样式结束 nav*/
+
+/*登录页样式主题 begin*/
+.login_body{  width: 100%;  position: relative;  float: left;  min-height: 30rem;  height: 100%;  margin: 0 0 2rem 0;  }
+.login_body form ul:nth-child(2){ margin: 16px 0px;}
+.login_body form ul:nth-child(2) li{  width: 80%;  height: auto;  background-color: #FFF;  line-height: 4.2rem;  margin: 24px auto;  position: relative;  border: 1px solid #ededed;  border-radius: 40px;  }
+.login_body form ul:nth-child(2) li:nth-child(1) input ,.login_body form ul:nth-child(2) li:nth-child(2) input{  font-family: "Microsoft YaHei";  margin-left: 2rem;     height: 3rem;  font-size: 1.4rem;  line-height: 3rem;  width: 52%; }
+.login_body form ul:nth-child(2) li:nth-child(1) i{  float: right;  width: 24px;  height: 24px;  background-size:24px 24px;  background-image: url("../images/btn_quxiao.png");  background-repeat: no-repeat;  position: relative;  top: 10px;  right: 21px;  }
+
+.error_messages {z-index: 999; top: 4.6rem; width: 100%; right: 0rem; display: block; position: fixed; height: 30px; line-height: 3rem; background-color: #FFF6E0; font-size: 1.2rem; color: #e25d39; text-align: center; border-bottom: 1px solid #FFEBC8; }
+.login_body .YZM_btn{ color: gray;float: right;  margin-right: 15px;}
+.login_body .active {color: #5298e6;}
+
+.login_body form ul:nth-child(3) li input{  font-family: "Microsoft YaHei";  height: 4.2rem;  font-size: 1.5rem;  line-height: 4.2rem;  background: #54bbff; width: 80%; margin: 40px auto;  display: block; color: #fff; border-radius: 40px;}
+
+
+/*报告解读页面*/
+.report_body{   float: left;   width: 100%;}
+.report_body .head{ width: 100%; height: 4rem;}
+.report_body .head ul li{ width: 50%; float: left; height:auto; line-height: 4rem; font-size: 16px; color: #323232; text-align: center; }
+.report_body .category{width: 100%; height: auto; margin-top: 2rem; float: left;}
+.report_body .category p{ width: 100%; line-height: 3rem; text-align: center;font-size: 16px; color: #7d7d7d;}
+.report_body .category ul{width: 100%;  float: left; padding: 0.6rem 1.5rem; height: auto; display: block;}
+.report_body .category ul li{ width: 47%;float: left;}
+.report_body .category ul li:nth-child(2){ float: right;}
+.report_body .category ul li .JYJC{  }
+.report_body .category ul li .JYJC img{ width: 100%;  }
+.report_body .fwlc{ float: left; width: 100%; padding: 1.5rem 1.5rem;}
+
+.report_body .fwlc span{ width: 100%; text-align: left; float: left; font-size: 16px; padding-left: 1rem; color:#7d7d7d;border-left: 2px solid #5298e6;margin: 2rem 0rem;}
+.report_body .upload{width: 100%; height: auto; margin-top: 2rem; margin-bottom: 2rem; float: left;}
+.report_body .upload > p{ width: 100%; line-height: 4rem; text-align: center;font-size: 16px; color: #7d7d7d;}
+.report_body .upload ul{width: 100%; padding: 0.6rem 1rem; height: auto; display: block;}
+.report_body .upload ul li { float: left; width: 30%; margin-left: 2%;margin-bottom: 1rem;}
+.report_body .upload ul li p img{ width: 100%;}
+
+.report_body .upload  .figure{float: left; width: 100%;}
+.report_body .upload  .am-paragraph-default{width: 100%; padding: 0 1.5rem;}
+.report_body .upload  .figure li { list-style: none; float: left; position: relative;     margin-right: 1rem;  margin-bottom: 1rem;}
+.report_body .upload  .figure li img{ width: 75px; height: 75px;}
+.report_body .upload  .am-form-file {  position: relative;  overflow: hidden;  float: left;}
+.report_body .upload  .am-btn-danger {  color: #fff;  background-image: url("../images/btn_camera.png");  background-size: 80px 80px;  background-repeat: no-repeat;  width: 80px;  height: 80px;  background-color: #fff;  border: none;}
+.report_body .upload  .am-form-file input[type=file] {  position: absolute;  left: 0;  top: 0;  z-index: 1;  opacity: 0;  cursor: pointer;  width: 80px;  height: 80px;  }
+.report_body .upload .tishi { width: 100%;  float: left; font-size: 14px; color: red; text-align: left;}
+.btn-close {  position: absolute;  top: -8px;  right: -8px;  width: 17px;  height: 17px;  background-image: url("../images/btn_quxiao.png");  background-repeat: no-repeat;  background-size: 17px 17px;  cursor: pointer;  }
+
+.report_body .question{float: left; width: 100%; padding: 0.6rem 1.5rem; margin-top: 1rem;}
+.report_body .question span{ width: 100%; text-align: left; float: left; font-size: 16px; padding-left: 1rem; color:#7d7d7d;border-left: 2px solid #5298e6;    margin: 2rem 0rem 1rem 0rem;}
+.report_body .question textarea{width: 100%;  height: 7rem;  border: none; font-family: "Microsoft YaHei"; color: #323232; border-top: 1px solid #e2e2e2; font-size: 15px;}
+
+.report_body .infomation{float: left; width: 100%; margin-top: 5rem;margin-bottom: 10rem;}
+.report_body .infomation ul li{float: left; width: 100%; padding: 0.6rem 1.5rem; font-size: 16px; border-bottom: 1px solid #eee;    line-height: 3rem;}
+.report_body .infomation ul li span{ float: left; width: 40%; color: #7d7d7d}
+.report_body .infomation ul li input{ float: right; width: 45%; font-family: "Microsoft YaHei";    line-height: 3rem;font-size: 15px;}
+.report_body form ul.submit{  float: left;  width: 100%;  height: 4.9rem;  width: 100%;  max-width: 640px;  min-width: 320px;  position: fixed;  bottom: 0;  z-index: 9999999999;  background: #fff;  padding: 0.5rem 0 0.65rem;  }
+.report_body form ul.submit a.submit{ text-align: center; margin-top: 3rem;  font-family: "Microsoft YaHei";  height: 4.0rem;  font-size: 1.5rem;  line-height: 4.0rem;  background: #54bbff;  width: 85%;  margin: 0px auto;  display: block;  color: #fff;  border-radius: 40px;  }
+
+/*体检报告解读 支付页面*/
+.reportpay_body{ float: left; width:100%;}
+.reportpay_body ul li { width: 100%; height: 6rem;
+    line-height: 6rem;  padding: 0 1.5rem;  font-size: 16px;}
+.reportpay_body ul li p{ width: 100%;}
+/*.reportpay_body ul li p img{ width: 46px;}*/
+
+.reportpay_body ul:nth-child(1) li p{ font-size: 20px;}
+.reportpay_body ul:nth-child(2) li:nth-child(1){ height: 5rem;  line-height: 5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; margin-bottom: 1rem;}
+.reportpay_body ul:nth-child(1) li p span{color: #9a9a9a;}
+.reportpay_body ul:nth-child(2) li p span:nth-child(1){font-size: 20px;color: #9a9a9a;}
+.reportpay_body ul:nth-child(2) li p span:nth-child(2){font-size: 16px;color: #ff6600;}
+.reportpay_body ul:nth-child(2) li p span:nth-child(2) i{font-size: 20px;}
+.reportpay_body ul:nth-child(2) li p s:nth-child(3) {font-size: 16px; color: #7d7d7d;}
+.reportpay_body ul:nth-child(2) li p i:nth-child(4) {    font-size: 11px;  padding: 0px 7px;  background-color: #ff6600;  color: white;}
+.reportpay_body ul:nth-child(2) li:nth-child(2) { height: 40px; line-height: 40px;}
+.reportpay_body ul:nth-child(2) li:nth-child(2) img{width: 40px; float: left;}
+.reportpay_body ul:nth-child(2) li:nth-child(2) span{ height: 40px; line-height: 40px;}
+.reportpay_body .submit{  width: 80%;  margin: 0 auto;  text-align: center;  background-color: #54bbff;  font-size: 18px;  color: white;  padding: 6px 0px;  margin-top: 4rem;  }
+.reportpay_body .submit span{  font-size: 12px;  color: #b4e2ff;  }
+
+.report_body  .list{ width: 100%; padding: 0 1.5rem; margin:  18px 0; float: left;}
+.report_body  .list ul li{ float: left; width: 100%;}
+.report_body  .list ul li > p:nth-child(1){     padding: 16px 0;  font-size: 14px;  border-bottom: 1px solid #eee;  margin-bottom: 10px;  float: left;  width: 100%;}
+.report_body  .list ul li > p:nth-child(1) o{  float: left;  width:75%; overflow: hidden;}
+.report_body  .list ul li > p:nth-child(1) i{  width: 20px;  height: 10px;  float: right;  position: relative;  top: 7px;  }
+.report_body  .list ul li > p:nth-child(1) i img{  width: 16px;  height:8px;  float: right;  }
+.report_body  .list ul li > p:nth-child(1) span{    font-size: 13px;  float: right;  color: #009dff;  }
+.report_body  .list ul li .listshow{  float: left;  margin-bottom: 1rem;  display: none;  }
+/*.report_body  .list ul li:first-child .listshow{display: block;  }*/
+
+.report_body  .list ul li .listshow p:nth-child(1){  width: 100%; float: left; font-size: 13px;color: #7d7d7d;margin-bottom: 1rem;  }
+.report_body  .list ul li .listshow p{width: 100%; float: left;}
+.report_body  .list ul li .listshow p img{ width: 100%; float: left;}
+.report_body  .list ul li .listshow p:nth-child(3){ margin-top: 1rem;}
+.report_body  .list ul li .listshow p a{ margin: 1rem auto; display: block;  padding:1rem 5rem; background-color: white; color: #009dff; width: 18rem; text-align: center; border: 1px solid #009dff; border-radius: 4rem; margin-top: 1rem;}
+
+.report_body  #wureport ul { float: left ; width: 100%; margin-top: 7rem;}
+.report_body  #wureport ul li{ list-style: none; text-align: center; margin: 1rem 0;}
+.report_body  #wureport ul li:last-child{ margin-top: 4rem;}
+.report_body  #wureport ul li p{}
+.report_body  #wureport ul li a{ padding: 2rem 4rem; background: #5298e6; color: white;font-size:20px; border-radius: 1rem;}
+
+
+
+
+
+.bglist_body { width: 100%; float: left;}
+.bglist_body .noreport{  }
+.bglist_body .noreport ul {  }
+.bglist_body .noreport ul li{     width: 100%;  float: left;  text-align: center; }
+.bglist_body .noreport ul li:nth-child(1) img{   width: 36%;  margin-top: 12rem;  margin-bottom: 2rem;}
+.bglist_body .noreport ul li:nth-child(2) p{      font-size: 22px;  color: #323232;  margin-bottom: 10px;}
+.bglist_body .noreport ul li:nth-child(3) p{     font-size: 16px;  color: #9a9a9a; }
+.bglist_body .noreport ul li:nth-child(4){    margin-top: 2rem;  padding:1rem 2rem;}
+.bglist_body .noreport ul li:nth-child(4) a{ display: block;   width: 42%; }
+.bglist_body .noreport ul li:nth-child(4) a img{     width: 100%; }
+.bglist_body .noreport ul li:nth-child(4) a:nth-child(1){  float: left; margin-left: 2rem;}
+.bglist_body .noreport ul li:nth-child(4) a:nth-child(2){  float: right; margin-right: 2rem;}
+
+.bglist_body  .bglist {     width: 100%; }
+.bglist_body  .bglist ul{  }
+.bglist_body  .bglist ul li{ float: left;  width: 100%;padding: 1rem 1.5rem; border-bottom: 1px solid #eee;}
+.bglist_body  .bglist ul li:last-child{margin-bottom: 80px; }
+.bglist_body  .bglist ul li a{ display: block; }
+.bglist_body  .bglist ul li a img{ width: 20%; float: left;}
+.bglist_body  .bglist ul li a p{ float: left; width: 70%; overflow: hidden; height: 2rem; line-height: 2rem; margin-left: 1rem;}
+.bglist_body  .bglist ul li a p:nth-child(2){ font-size: 18px;color: #000; margin-top: 1rem;}
+.bglist_body  .bglist ul li a p:nth-child(3){ font-size: 14px; color:#7d7d7d; margin-top: 0.4rem;}
+.bglist_body  .bglist ul li a i{  width: 11px;  height: 18px;  background-size: 11px 18px;  background-image: url("../images/icon_right.png");  background-repeat: no-repeat;  float: right;;      position: relative;  top: -11px;}
+
+.bglist_body  .bglist .xzbg{  height: 5.3rem; background-color: #019EEB;  width: 100%;  max-width: 640px;  min-width: 320px;  position: fixed;  bottom: 0;  z-index: 9999999999;  }
+.bglist_body  .bglist .xzbg img{  width: 100%;}
+
+.report_body form #addreportinfo{ margin: 0px;}
+.report_body form #addreportinfo ul li input{     width: 47%;  line-height: 3rem;  text-align: right;    font-size: 14px;font-family: "Microsoft YaHei";}
+.report_body .upload > p.test{ text-align: left; padding: 0.5rem 1rem; line-height: 0; margin-bottom: 2rem;}
+
+.report_body form ul#submit{  float: left;  width: 100%;  height: 4.9rem;  width: 100%;  max-width: 640px;  min-width: 320px;   background: #fff;  padding: 0.5rem 0 0.65rem;      margin-top: 6rem;}
+.report_body form ul#submit a.submit{ text-align: center; margin-top: 3rem;  font-family: "Microsoft YaHei";  height: 4.0rem;  font-size: 1.5rem;  line-height: 4.0rem;  background: #54bbff;  width: 85%;  margin: 0px auto;  display: block;  color: #fff;  border-radius: 40px;  }
+
+.mark{ padding: 0 1rem; float: left; font-size: 13px; color: red;}
+
+
+
+
+

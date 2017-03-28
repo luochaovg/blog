@@ -11,6 +11,93 @@
     });
     这种情况只能给最后一个参数指定默认值
 
+
+//中间件 路由加保护过滤
+//Route::group(['middleware' => ['web']], function () {
+//    Route::get('admin/login','Admin\IndexController@login');
+//
+//    Route::get('/test', function () {
+////        session(['key' => '']);
+//        echo session('key').'<BR>';
+//        return 'test';
+//    });
+//
+//});
+
+
+//路由分组
+//Route::group(['prefix' => 'admin','namespace'=>'Admin','middleware'=>['web','adminlogin']],function(){  //前缀，命名空间分组
+//    Route::get('index','IndexController@index');
+//    Route::resource('article','ArticleController@index'); //资源路由
+//});
+
+//Route::get('admin/login','Admin\IndexController@login');
+//Route::get('admin/index','Admin\IndexController@index');
+
+
+//资源路由
+
+//blog.hd/admin/aritce/create
+//blog.hd/admin/aritce/index
+//blog.hd/admin/aritce/edit/{id}
+
+//命名路由 - 控制器
+//Route::get('test',['as' => 'profile','uses'=>'Admin\IndexController@index']);
+//Route::get('test', 'Admin\IndexController@index')->name('profile');
+
+
+
+//命名路由
+//Route::get('user',['as' => 'profile', function(){
+//    echo route('profile');
+//        return '<h1>命名路由</h1>';
+//}]);
+//
+//
+//
+//Route::get('test','Admin\IndexController@index');  //注意这里用反斜杠
+
+
+//参数约束
+//Route::get('user/{id}', function ($id) {
+//    return 'User '.$id;
+//})->where('id','[0-9]+');
+
+
+//可选参数
+//Route::get('user/{id}/comment/{comment?}', function ($id=null,$comment=null) {
+//    return 'User:'.$id.'---------comment:'.$comment;
+//});
+
+
+//Route::get('user/{id}', function ($id) {
+//    return 'User '.$id;
+//});
+
+//多个参数
+//Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
+//    return $commentId;
+//});
+
+
+//Route::get('/hd', function () {
+//    echo 'get';
+//});
+//
+//Route::post('/hd', function () {
+//    echo 'post';
+//});
+//
+//Route::match(['get', 'post'], '/test', function () {
+//    echo 'match';
+//});
+//
+//Route::any('foo', function () {
+//    echo 'foo';
+//});
+
+
+
 问题三：php artisan make:Controller UserController 创建控制器报错
     [RuntimeException]
     Unable to detect application namespace.
@@ -180,3 +267,5 @@ public function changeOrder(){
     return $data;
 }
 
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1b6db5862490e94b
+&redirect_uri=http%3A%2F%2Fluochao.tunnel.qydev.com%2Fblog%2Fwechat%2Fuser%3Fwinzoom%3D1.375&response_type=code&scope=snsapi_userinfo&state=0fc66dc4ac3a483ac9149ad52a98e33d#wechat_redirect
